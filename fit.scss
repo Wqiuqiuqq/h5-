@@ -1,0 +1,362 @@
+@charset "utf-8";
+// 页面适配
+// 根元素大小使用 vw 单位
+$vw_fontsize: 75; // 是$vm_design 值的十分之一
+$vw_design: 750; // 根据需要替换成设计稿的值,比如设计稿给你的宽度是750px,
+@function rem($px) {
+    @return ($px / $vw_fontsize) * 1rem;
+}
+html {
+    font-size: ($vw_fontsize / $vw_design) * 100vw; // 同时，通过Media Queries 限制根元素最大最小值
+    @media screen and (max-width: 320px) {
+        font-size: 32px;
+    }
+    @media screen and (min-width: 540px) {
+        font-size: 54px;
+    }
+}
+
+//$action-sheet-ios-button-font-size: rem(20);
+//$action-sheet-ios-title-font-size: rem(13);
+//$action-sheet-md-button-font-size: rem(16);
+//$action-sheet-md-icon-font-size: rem(24);
+//$action-sheet-md-title-font-size: rem(16);
+//$action-sheet-wp-button-font-size: rem(15);
+//$action-sheet-wp-icon-font-size: rem(24);
+//$action-sheet-wp-title-font-size: rem(20);
+//$badge-font-size: rem(13);
+//$button-ios-font-size: rem(16);
+//$button-ios-large-font-size: rem(20);
+//$button-ios-small-font-size: rem(13);
+//$button-ios-small-icon-font-size: rem(13);
+//$button-md-font-size: rem(14);
+//$button-md-large-font-size: rem(20);
+//$button-md-small-font-size: rem(13);
+//$button-md-small-icon-font-size: rem(14);
+//$button-wp-font-size: rem(14);
+//$button-wp-large-font-size: rem(20);
+//$button-wp-small-font-size: rem(13);
+//$button-wp-small-icon-font-size: rem(13);
+//$card-ios-font-size: rem(14);
+//$card-ios-header-font-size: rem(16);
+//$card-ios-title-font-size: rem(18);
+//$card-md-font-size: rem(14);
+//$card-md-header-font-size: rem(16);
+//$card-md-title-font-size: rem(24);
+//$card-wp-font-size: rem(14);
+//$card-wp-header-font-size: rem(16);
+//$card-wp-title-font-size: rem(24);
+//$font-size-base: rem(14);
+//$font-size-ios-base: $font-size-base;
+//$font-size-ios-base: $font-size-base;
+//$font-size-md-base: $font-size-base;
+//$font-size-md-base: $font-size-base;
+//$font-size-wp-base: $font-size-base;
+//$font-size-wp-base: $font-size-base;
+//$h1-font-size: rem(26);
+//$h2-font-size: rem(24);
+//$h3-font-size: rem(22);
+//$h4-font-size: rem(20);
+//$h5-font-size: rem(18);
+//$h6-font-size: rem(16);
+//$item-ios-body-text-font-size: rem(17);
+//$item-ios-paragraph-font-size: rem(14);
+//$item-md-body-text-font-size: rem(14);
+//$item-md-divider-font-size: $item-md-body-text-font-size;
+//$item-md-font-size: rem(16);
+//$item-wp-body-text-font-size: rem(14);
+//$item-wp-divider-font-size: rem(20);
+//$item-wp-font-size: rem(16);
+//$list-ios-header-font-size: rem(12);
+//$list-md-header-font-size: rem(14);
+//$list-wp-header-font-size: rem(20);
+//$searchbar-wp-input-font-size: rem(14);
+//$segment-button-ios-font-size: rem(13);
+//$segment-button-ios-toolbar-font-size: rem(12);
+//$segment-button-md-font-size: rem(12);
+//$segment-button-wp-font-size: rem(13);
+//$tabs-md-tab-font-size: rem(12);
+//$tabs-md-tab-font-size-active: rem(14);
+//$tabs-wp-tab-font-size: rem(12);
+//$toast-ios-title-font-size: rem(14);
+//$toast-md-title-font-size: rem(15);
+//$toast-wp-title-font-size: rem(14);
+//$toolbar-ios-button-font-size: rem(17);
+//$toolbar-ios-title-font-size: rem(17);
+//$toolbar-md-button-font-size: rem(14);
+//$toolbar-md-title-font-size: rem(20);
+//$toolbar-wp-button-font-size: rem(14);
+//$toolbar-wp-title-font-size: rem(15);
+//$action-sheet-ios-button-min-height: rem(48);
+//$action-sheet-ios-title-padding: rem(15);
+//$action-sheet-md-button-min-height: rem(48);
+//$action-sheet-md-icon-width: rem(23);
+//$action-sheet-wp-button-height: rem(48);
+//$action-sheet-wp-icon-width:rem(23);
+//$alert-wp-input-line-height:rem(30);
+//$button-ios-margin-bottom: rem(4);
+//$button-ios-margin-end: rem(2);
+//$button-ios-margin-start:rem(2);
+//$button-ios-margin-top: rem(4);
+//$button-md-height: rem(36);
+//$button-md-margin-bottom: rem(4);
+//$button-md-margin-end: rem(2);
+//$button-md-margin-start:rem(2);
+//$button-md-margin-top: rem(4);
+//$button-round-padding-end: rem(26);
+//$button-wp-height: rem(36);
+//$button-wp-margin-bottom :rem(4);
+//$button-wp-margin-end: rem(2);
+//$button-wp-margin-start: rem(2);
+//$button-wp-margin-top:rem(4);
+//$list-ios-header-letter-spacing:rem(1);
+//$list-md-header-min-height:rem(45);
+//$searchbar-ios-input-height:rem(30);
+//$searchbar-md-input-line-height:rem(30);
+//$searchbar-wp-input-line-height:rem(30);
+//$segment-button-ios-height: rem(32);
+//$segment-button-ios-icon-line-height: rem(28);
+//$segment-button-ios-icon-size: rem(26);
+//$segment-button-ios-line-height:rem(30);
+//$segment-button-ios-toolbar-button-height: rem(26);
+//$segment-button-ios-toolbar-icon-line-height: rem(24);
+//$segment-button-ios-toolbar-icon-size:rem(22);
+//$segment-button-ios-toolbar-line-height: rem(25);
+//$segment-button-md-font-size: rem(12);
+//$segment-button-md-height: rem(42);
+//$segment-button-md-icon-size: rem(26);
+//$segment-button-md-line-height: rem(40);
+//$segment-button-wp-height: rem(40);
+//$segment-button-wp-icon-size: rem(26);
+//$segment-button-wp-line-height: rem(40);
+//$tabs-md-tab-font-size-active:rem(14);
+//$tabs-md-tab-icon-size:rem(24);
+//$tabs-md-tab-min-height:rem(46);
+//$tabs-wp-tab-icon-size:rem(24);
+//$text-input-wp-line-height:rem(30);
+//$toast-ios-border-radius:rem(6.5);
+//$toast-ios-title-padding-top:rem(15);
+//$toast-wp-title-padding-top:rem(15);
+//$segment-button-ios-icon-line-height:rem(28);
+//$menu-width:rem(200);
+//$menu-small-width:rem(200);
+//
+
+// body 也增加最大最小宽度限制，避免默认100%宽度的 block 元素跟随 body 而过大过小
+body {
+    //max-width: 540px;
+    //min-width: 320px;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background: transparent;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+sumary {
+    margin: 0;
+    padding: 0;
+}
+
+
+//清除输入框内阴影
+input,
+select,
+textarea {
+    border: 0;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+//禁止选中文本内容
+*:not(input, select, textArea) {
+    -webkit-user-select: none;
+}
+
+//禁用长按页面时的弹出菜单(iOS下有效) ,img和a标签都要加
+img,
+a {
+    -webkit-touch-callout: none;
+}
+
+a,
+a:active,
+a:hover {
+    text-decoration: none;
+}
+
+//去掉点击链接和文本框对象时默认的灰色半透明覆盖层(iOS)或者虚框(Android)
+a,
+button,
+input,
+textarea {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.back-button-icon-md,
+.back-button-icon-ios {
+    font-size: rem(28);
+}
+
+.back-button-ios {
+    min-height: rem(32);
+}
+
+//icon 定位在页面的右侧,添加在ion-icon 标签上
+.icon-right {
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+//item固有高度
+.item-block {
+    min-height: rem(44);
+}
+
+//checkbox框样式
+.checkbox-ios .checkbox-icon {
+    border-radius: 4px;
+}
+
+.item.item-ios .checkbox-ios {
+    margin: rem(15) 0;
+    margin-right: rem(9);
+}
+
+//菜单图标
+.bar-button-menutoggle-ios ion-icon {
+    font-size: rem(24);
+}
+
+//icon
+.item>ion-icon,
+.item-inner>ion-icon {
+    font-size: rem(28);
+    min-height: rem(28);
+}
+
+// 时间选择器配置
+.picker-ios .picker-opt {
+    height: rem(45);
+}
+
+.center {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+}
+
+.space-between {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.space-around {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.toast-middle{
+    width: 50px;
+}
+.toast-ios .toast-message{
+    text-align: center;
+}
+
+/*111*/
+.box{
+    width: rem(120);
+    height: rem(120);
+    background-color: #488aff;
+    margin-right: rem(90);
+    float: left;
+}
+.box1{
+    width: rem(120);
+    height: rem(120);
+    background-color: pink;
+    font-size: 17px;
+    /*重点*/
+    font-size: rem(34);
+    float: left;
+}
+.bigbox .box:last-child{
+    margin-right: 0 !important;
+}
+
+body{
+    background-color: #646464;
+}
